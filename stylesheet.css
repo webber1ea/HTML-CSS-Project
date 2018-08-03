@@ -1,0 +1,53 @@
+.activity-feed {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.centered {
+	text-align: center;
+}
+
+.page-header {
+	padding: 20px 0;
+}
+
+.add-form {
+	padding-bottom: 20px;
+}
+
+.container {
+	overflow: hidden;
+}
+
+.link-title {
+	border: 0;
+}
+
+#firstLine {
+	padding-bottom: 20px;
+}
+
+#secondLine {
+	padding-bottom: 20px;
+}
+
+.logo {
+	max-height: 100%;
+	max-width: 50%;
+}
+
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 50%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+button {
+	background-color: white;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tim's Referral</title>
+	<link rel="stylesheet" href="stylesheet.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Bootstrap stylesheets -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.min.css" type="text/css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css" type="text/css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css" type="text/css">
+	<!-- Bootstrap javascript -->
+	<script src="bootstrap/js/bootstrap.bundle.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-sm-12 centered">
+  				<div class="page-header">
+  					<h2>Grow the web with referrals!</h2>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-sm-12 centered">
+  				<form id="form" class="add-form" method="post">
+  					<label>Add a link:</label>
+  					<input name="userInput" type="text" size="20" id="userInput">
+  					<input type="button" onclick="addRow();" id="addBtn" value="Add">
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+    <div class="activity-feed">
+    	<table id="table">
+    		<tr>
+	    		<th>Link Title</th>
+	    		<th>Clicks</th>
+	    		<th>Edit</th>
+	    		<th>Delete</th>
+	    	</tr>
+	    	<tr>
+	    		<td><a onclick="wolverineCounter()" href="./landing.html?link=wolverines" target="blank">wolverines</a></td>
+	    		<td id="wolverineClicks">36</td>
+	    		<td>Edit</td>
+	    		<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><a onclick="spartanCounter()" href="./landing.html?link=spartans" target="blank">spartans</a></td>
+	    		<td id="spartanClicks">33</td>
+	    		<td>Edit</td>
+	    		<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><a onclick="lakerCounter()" href="./landing.html?link=lakers" target="blank">lakers</a></td>
+	    		<td id="lakerClicks">23</td>
+	    		<td>Edit</td>
+	    		<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><a onclick="broncoCounter()" href="./landing.html?link=broncos" target="blank">broncos</a></td>
+	    		<td id="broncoClicks">18</td>
+	    		<td>Edit</td>
+	    		<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><a onclick="lionCounter()" href="./landing.html?link=lions" target="blank">lions</a></td>
+	    		<td id="lionClicks">6</td>
+	    		<td>Edit</td>
+	    		<td><input class="deleteBtn" type="button" value="Delete" onclick="deleteRow(this)"></td>
+	    	</tr>
+    	</table>
+    </div>
+	<script>
+		//Click counter
+		var wolverineClicks = 36;
+		var spartanClicks = 33;
+		var lakerClicks = 23;
+		var broncoClicks = 18;
+		var lionClicks = 6;
+
+		function wolverineCounter(){
+			wolverineClicks += 1;
+			document.getElementById("wolverineClicks").innerHTML = wolverineClicks;
+		};
+
+		function spartanCounter(){
+			spartanClicks += 1;
+			document.getElementById("spartanClicks").innerHTML = spartanClicks;
+		}
+
+		function lakerCounter(){
+			lakerClicks += 1;
+			document.getElementById("lakerClicks").innerHTML = lakerClicks;
+		}
+
+		function broncoCounter(){
+			broncoClicks += 1;
+			document.getElementById("broncoClicks").innerHTML = broncoClicks;
+		}
+
+		function lionCounter(){
+			lionClicks += 1;
+			document.getElementById("lionClicks").innerHTML = lionClicks;
+		}
+
+		//Add row
+	  	function addRow(){
+	  		// get the table by id
+	  		// create a new row and cells
+	  		// get value from input text
+	  		// set the value into row cell's
+	  		var table = document.getElementById("table"),
+	  			newRow = table.insertRow(table.length),
+	  			cell1 = newRow.insertCell(0),
+	  			cell2 = newRow.insertCell(1),
+	  			cell3 = newRow.insertCell(2),
+	  			cell4 = newRow.insertCell(3);
+	  			input = document.getElementById("userInput").value;
+	  			cell1.setAttribute("id","clickableLink");
+
+	  			// $("#clickableLink").append("<a>" + "target='blank' href='./landing.html?link='" + userInput.value + "</a>");
+	  			cell1.innerHTML = "<a target='blank' href='./landing.html?link='>" + input + "</a>";
+	  			cell2.innerHTML = "<td></td>"; 
+	  			cell2.innerText = 0; 
+	  			// cell2.setAttribute("id", userInput + "Clicks");
+	  			cell2.setAttribute("id", "inputClicks");
+	  			cell3.innerHTML = "Edit";
+	  			cell4.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this)'>";
+	  	};
+	  	
+	  	//Delete row
+		function deleteRow(r) {
+		    var i = r.parentNode.parentNode.rowIndex;
+		    document.getElementById("table").deleteRow(i);
+		};
+  	</script>
+  </body>
+</html>
